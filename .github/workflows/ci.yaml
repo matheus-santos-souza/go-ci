@@ -3,12 +3,13 @@ on:
   pull_request:
     branches:
       - develop
-strategy:
-  matrix:
-    go: ['1.21', '1.23.2']     
+   
 jobs: 
   check-applications:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go: ['1.21', '1.23.2']  
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
